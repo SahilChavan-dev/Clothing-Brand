@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - FashionFusion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">Fashion<span>Fusion</span></a>
+            </div>
+            
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for products...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            
+            <div class="header-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Main Navigation -->
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="categories.html">Shop <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>Men</h4>
+                            <a href="#">T-Shirts</a>
+                            <a href="#">Shirts</a>
+                            <a href="#">Jeans</a>
+                            <a href="#">Jackets</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Women</h4>
+                            <a href="#">Dresses</a>
+                            <a href="#">Tops</a>
+                            <a href="#">Skirts</a>
+                            <a href="#">Activewear</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Accessories</h4>
+                            <a href="#">Watches</a>
+                            <a href="#">Bags</a>
+                            <a href="#">Sunglasses</a>
+                            <a href="#">Jewelry</a>
+                        </div>
+                    </div>
+                </li>
+                 <li><a href="NewArrivals.html">New Arrivals</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="about.html">About</a></li>
+                 <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="product-page">
+        <div class="breadcrumbs">
+            <a href="index.html">Home</a> / 
+            <a href="categories.html">Men</a> / 
+            <a href="#">T-Shirts</a> / 
+            <span>Classic White Tee</span>
+        </div>
+        
+        <div class="product-container">
+            <div class="product-gallery">
+                <div class="main-image">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Classic White Tee" id="main-product-image">
+                </div>
+                <div class="thumbnail-images">
+                    <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 1">
+                    <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 2">
+                    <img src="https://images.unsplash.com/photo-1527719327859-c6ce80353573?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 3">
+                    <img src="https://images.unsplash.com/photo-1578932750355-5eb30ece487a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Thumbnail 4">
+                </div>
+            </div>
+            
+            <div class="product-details">
+                <h1>Classic White Tee</h1>
+                <div class="product-meta">
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(124 reviews)</span>
+                    </div>
+                    <div class="sku">SKU: FF-WHT-001</div>
+                </div>
+                
+                <div class="price">
+                    <span class="current-price">$24.99</span>
+                    <span class="original-price">$29.99</span>
+                    <span class="discount">(17% OFF)</span>
+                </div>
+                
+                <div class="product-description">
+                    <p>Our classic white t-shirt is crafted from 100% organic cotton for ultimate comfort. The perfect staple for any wardrobe, featuring a regular fit and reinforced stitching for durability.</p>
+                    
+                    <ul class="features-list">
+                        <li><i class="fas fa-check"></i> 100% Organic Cotton</li>
+                        <li><i class="fas fa-check"></i> Reinforced Neckline</li>
+                        <li><i class="fas fa-check"></i> Pre-washed to prevent shrinkage</li>
+                        <li><i class="fas fa-check"></i> Machine washable</li>
+                    </ul>
+                </div>
+                
+                <div class="product-options">
+                    <div class="size-selector">
+                        <label for="size">Size:</label>
+                        <select id="size">
+                            <option value="">Select Size</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">X-Large</option>
+                        </select>
+                    </div>
+                    
+                    <div class="color-selector">
+                        <label>Color:</label>
+                        <div class="color-options">
+                            <div class="color-option white selected" data-color="white"></div>
+                            <div class="color-option black" data-color="black"></div>
+                            <div class="color-option gray" data-color="gray"></div>
+                            <div class="color-option navy" data-color="navy"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="quantity-selector">
+                        <label for="quantity">Quantity:</label>
+                        <div class="quantity-control">
+                            <button class="quantity-btn minus"><i class="fas fa-minus"></i></button>
+                            <input type="number" id="quantity" value="1" min="1">
+                            <button class="quantity-btn plus"><i class="fas fa-plus"></i></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-actions">
+                    <button class="btn add-to-cart">Add to Cart</button>
+                    <button class="btn btn-outline">Add to Wishlist</button>
+                </div>
+                
+                <div class="product-meta-bottom">
+                    <div class="meta-item">
+                        <i class="fas fa-truck"></i>
+                        <span>Free shipping on orders over $50</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-exchange-alt"></i>
+                        <span>Easy returns within 30 days</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Secure checkout</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Product Tabs -->
+        <div class="product-tabs">
+            <div class="tabs-header">
+                <button class="tab-btn active" data-tab="description">Description</button>
+                <button class="tab-btn" data-tab="details">Details</button>
+                <button class="tab-btn" data-tab="reviews">Reviews</button>
+                <button class="tab-btn" data-tab="shipping">Shipping</button>
+            </div>
+            
+            <div class="tabs-content">
+                <div class="tab-pane active" id="description">
+                    <h3>Product Description</h3>
+                    <p>Our Classic White Tee is the perfect foundation for any wardrobe. Made from premium 100% organic cotton, this t-shirt offers exceptional comfort and breathability. The regular fit provides a flattering silhouette that works for all body types.</p>
+                    <p>The fabric has been pre-washed to prevent shrinkage and maintain its shape wash after wash. The reinforced neckline and double-stitched seams ensure durability, making this a t-shirt that will last season after season.</p>
+                </div>
+                
+                <div class="tab-pane" id="details">
+                    <h3>Product Details</h3>
+                    <ul>
+                        <li><strong>Material:</strong> 100% Organic Cotton</li>
+                        <li><strong>Fit:</strong> Regular Fit</li>
+                        <li><strong>Length:</strong> Regular</li>
+                        <li><strong>Sleeve:</strong> Short Sleeve</li>
+                        <li><strong>Neck:</strong> Crew Neck</li>
+                        <li><strong>Care Instructions:</strong> Machine wash cold, tumble dry low</li>
+                        <li><strong>Origin:</strong> Made in USA</li>
+                    </ul>
+                </div>
+                
+                <div class="tab-pane" id="reviews">
+                    <h3>Customer Reviews</h3>
+                    <div class="review">
+                        <div class="review-header">
+                            <div class="review-author">Alex Johnson</div>
+                            <div class="review-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <div class="review-title">Perfect fit and quality</div>
+                        <div class="review-content">
+                            <p>This is my third white tee from FashionFusion and they never disappoint. The fabric is soft but substantial, and the fit is just right - not too tight, not too loose. Washed it several times and it still looks new.</p>
+                        </div>
+                        <div class="review-date">Posted on June 12, 2024</div>
+                    </div>
+                    <!-- More reviews would go here -->
+                </div>
+                
+                <div class="tab-pane" id="shipping">
+                    <h3>Shipping Information</h3>
+                    <p>We offer fast and reliable shipping options:</p>
+                    <ul>
+                        <li><strong>Standard Shipping:</strong> 3-5 business days - $4.99 (Free on orders over $50)</li>
+                        <li><strong>Express Shipping:</strong> 2 business days - $9.99</li>
+                        <li><strong>International Shipping:</strong> Available to most countries - rates vary</li>
+                    </ul>
+                    <p>All orders are processed within 1-2 business days. You will receive a tracking number once your order ships.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                     <li><a href="NewArrivals.html">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2024 FashionFusion. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

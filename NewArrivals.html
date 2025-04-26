@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Arrivals - FashionFusion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* New Arrivals Page Specific Styles */
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+
+        .page-description {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .new-arrivals-banner {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                        url('https://images.unsplash.com/photo-1469334031218-e382a71b716b?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 8px;
+            margin-bottom: 40px;
+        }
+
+        .banner-title {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+
+        .banner-subtitle {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+        }
+
+        .view-collection-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .view-collection-btn:hover {
+            background-color: #e05555;
+        }
+
+        .arrivals-container {
+            padding: 0 15px;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: #2a2a2a;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background-color: #ff6b6b;
+        }
+
+        .filter-options {
+            display: flex;
+            gap: 15px;
+        }
+
+        .filter-btn {
+            background: none;
+            border: 1px solid #e9ecef;
+            padding: 8px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .filter-btn.active {
+            background-color: #ff6b6b;
+            color: white;
+            border-color: #ff6b6b;
+        }
+
+        .filter-btn:hover {
+            border-color: #ff6b6b;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .new-badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background-color: #4a90e2;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        .product-image-container {
+            height: 350px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .product-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-info {
+            padding: 20px;
+        }
+
+        .product-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #2a2a2a;
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: #2a2a2a;
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #2a2a2a;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+        }
+
+        .add-to-cart:hover {
+            background-color: #ff6b6b;
+        }
+
+       
+/* Newsletter Section */
+.newsletter-section {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 70px 0;
+    margin-top: 60px;
+}
+
+.newsletter-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+    gap: 40px;
+}
+
+.newsletter-content {
+    flex: 1;
+}
+
+.newsletter-content h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+}
+
+.newsletter-content p {
+    opacity: 0.8;
+    max-width: 500px;
+    line-height: 1.7;
+}
+
+.newsletter-form {
+    display: flex;
+    max-width: 500px;
+    flex: 1;
+}
+
+.newsletter-form input {
+    flex-grow: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: var(--border-radius) 0 0 var(--border-radius);
+    outline: none;
+    font-size: 1rem;
+}
+
+.newsletter-form button {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 0 30px;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.newsletter-form button:hover {
+    background-color: #e05555;
+}
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .banner-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .filter-options {
+                flex-wrap: wrap;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .new-arrivals-banner {
+                padding: 40px 15px;
+            }
+            
+            .banner-title {
+                font-size: 1.8rem;
+            }
+            
+            .banner-subtitle {
+                font-size: 1rem;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="main-header">
+        <div class="announcement-bar">
+            <p>Free shipping on orders over $50 | <strong>30% OFF</strong> Summer Collection</p>
+        </div>
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">Fashion<span>Fusion</span></a>
+            </div>
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for products...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="categories.html">Shop <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>Men</h4>
+                            <a href="#">T-Shirts</a>
+                            <a href="#">Shirts</a>
+                            <a href="#">Jeans</a>
+                            <a href="#">Jackets</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Women</h4>
+                            <a href="#">Dresses</a>
+                            <a href="#">Tops</a>
+                            <a href="#">Skirts</a>
+                            <a href="#">Activewear</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Accessories</h4>
+                            <a href="#">Watches</a>
+                            <a href="#">Bags</a>
+                            <a href="#">Sunglasses</a>
+                            <a href="#">Jewelry</a>
+                        </div>
+                    </div>
+                </li>
+                <li><a href="NewArrivals.html">New Arrivals</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- New Arrivals Page Content -->
+    <main class="new-arrivals-page">
+        <div class="page-header">
+            <h1 class="page-title">New Arrivals</h1>
+            <p class="page-description">Discover our latest collection of fresh styles and trends for the season.</p>
+        </div>
+
+        <!-- New Arrivals Banner -->
+        <div class="new-arrivals-banner">
+            <h2 class="banner-title">Spring Collection 2024</h2>
+            <p class="banner-subtitle">Explore our newest arrivals featuring vibrant colors, lightweight fabrics, and contemporary designs perfect for the season.</p>
+            <button class="view-collection-btn">View Full Collection</button>
+        </div>
+
+        <!-- New Arrivals Products -->
+        <div class="arrivals-container">
+            <div class="section-header">
+                <h2 class="section-title">Latest Products</h2>
+                <div class="filter-options">
+                    <button class="filter-btn active">All</button>
+                    <button class="filter-btn">Women</button>
+                    <button class="filter-btn">Men</button>
+                    <button class="filter-btn">Accessories</button>
+                </div>
+            </div>
+            <div class="products-grid">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1551232864-3f0890e580d9?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Floral Summer Dress" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Floral Summer Dress</h3>
+                        <div class="product-price">$49.99</div>
+                        <button class="add-to-cart" data-id="101">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 2 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Lightweight Denim Jacket" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Lightweight Denim Jacket</h3>
+                        <div class="product-price">$59.99</div>
+                        <button class="add-to-cart" data-id="102">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 3 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1543076447-215ad9ba6923?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Linen Shirt" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Linen Shirt</h3>
+                        <div class="product-price">$39.99</div>
+                        <button class="add-to-cart" data-id="103">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 4 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Canvas Tote Bag" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Canvas Tote Bag</h3>
+                        <div class="product-price">$29.99</div>
+                        <button class="add-to-cart" data-id="104">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 5 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Cropped Wide-Leg Pants" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Black Denim Jacket</h3>
+                        <div class="product-price">$45.99</div>
+                        <button class="add-to-cart" data-id="105">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Oversized Blazer" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Oversized Blazer</h3>
+                        <div class="product-price">$79.99</div>
+                        <button class="add-to-cart" data-id="106">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 7 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Woven Leather Belt" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Woven Leather Belt</h3>
+                        <div class="product-price">$34.99</div>
+                        <button class="add-to-cart" data-id="107">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <span class="new-badge">New</span>
+                    <div class="product-image-container">
+                        <img src="https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" alt="Square Frame Sunglasses" class="product-image">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-title">Square Frame Sunglasses</h3>
+                        <div class="product-price">$24.99</div>
+                        <button class="add-to-cart" data-id="108">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h3>Subscribe to Our Newsletter</h3>
+                    <p>Get 10% off your first order and be the first to know about new arrivals and exclusive offers.</p>
+                </div>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                    <li><a href="NewArrivals.html">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FashionFusion. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // In a real implementation, this would filter the products
+                    // For now, we'll just log the filter selection
+                    console.log('Filter by:', this.textContent);
+                });
+            });
+            
+            // Add to cart buttons
+            document.querySelectorAll('.add-to-cart').forEach(button => {
+                button.addEventListener('click', function() {
+                    const productId = this.getAttribute('data-id');
+                    // In a real implementation, this would call your addToCart function
+                    this.textContent = 'Added!';
+                    setTimeout(() => {
+                        this.textContent = 'Add to Cart';
+                    }, 1000);
+                });
+            });
+            
+            // Initialize the cart count
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.textContent = totalItems;
+            });
+            
+            // Newsletter form
+            const newsletterForm = document.querySelector('.newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input').value;
+                    // In a real implementation, this would submit to your newsletter service
+                    alert('Thank you for subscribing with ' + email);
+                    this.reset();
+                });
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - FashionFusion</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* About Page Specific Styles */
+        .about-page {
+            padding: 60px 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 0 15px;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            color: #2a2a2a;
+            margin-bottom: 15px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+
+        .page-description {
+            color: #6c757d;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .about-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            margin-bottom: 60px;
+            padding: 0 15px;
+        }
+
+        .about-image {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-content h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: #2a2a2a;
+        }
+
+        .about-content p {
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .mission-values {
+            background-color: #f8f9fa;
+            padding: 60px 0;
+            margin: 60px 0;
+        }
+
+        .mission-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: #2a2a2a;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #ff6b6b;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .value-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .value-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            color: #ff6b6b;
+            margin-bottom: 20px;
+        }
+
+        .value-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #2a2a2a;
+        }
+
+        .team-section {
+            padding: 60px 15px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-member {
+            text-align: center;
+        }
+
+        .member-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 5px solid white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .member-name {
+            font-size: 1.3rem;
+            margin-bottom: 5px;
+            color: #2a2a2a;
+        }
+
+        .member-position {
+            color: #ff6b6b;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+
+        .member-bio {
+            color: #6c757d;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .social-links a {
+            color: #6c757d;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background-color: #ff6b6b;
+            color: #f8f9fa;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-section {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+                max-width: 600px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .value-card {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (Same as index.html) -->
+    <header class="main-header">
+        <div class="announcement-bar">
+            <p>Free shipping on orders over $50 | <strong>30% OFF</strong> Summer Collection</p>
+        </div>
+        <div class="header-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo">Fashion<span>Fusion</span></a>
+            </div>
+            <div class="search-container">
+                <form class="search-form">
+                    <input type="text" placeholder="Search for products...">
+                    <button type="submit"><i class="fas fa-search"></i></button>
+                </form>
+            </div>
+            <div class="header-icons">
+                <a href="#"><i class="far fa-user"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul class="nav-list">
+                <li><a href="index.html">Home</a></li>
+                <li class="dropdown">
+                    <a href="categories.html">Shop <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-column">
+                            <h4>Men</h4>
+                            <a href="#">T-Shirts</a>
+                            <a href="#">Shirts</a>
+                            <a href="#">Jeans</a>
+                            <a href="#">Jackets</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Women</h4>
+                            <a href="#">Dresses</a>
+                            <a href="#">Tops</a>
+                            <a href="#">Skirts</a>
+                            <a href="#">Activewear</a>
+                        </div>
+                        <div class="dropdown-column">
+                            <h4>Accessories</h4>
+                            <a href="#">Watches</a>
+                            <a href="#">Bags</a>
+                            <a href="#">Sunglasses</a>
+                            <a href="#">Jewelry</a>
+                        </div>
+                    </div>
+                </li>
+                 <li><a href="NewArrivals.html">New Arrivals</a></li>
+                <li><a href="sale.html">Sale</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- About Page Content -->
+    <main class="about-page">
+        <div class="page-header">
+            <h1 class="page-title">Our Story</h1>
+            <p class="page-description">Discover the passion and dedication behind FashionFusion, where style meets quality in every stitch.</p>
+        </div>
+
+        <!-- Brand Story Section -->
+        <section class="about-section">
+            <div class="about-content">
+                <h2>Where Fashion Meets Passion</h2>
+                <p>Founded in 2015, FashionFusion began as a small boutique in New York City with a simple mission: to bring high-quality, stylish clothing to fashion-forward individuals at accessible prices. What started as a single store has now blossomed into a beloved brand with customers worldwide.</p>
+                <p>Our founder, Sarah Johnson, envisioned a space where quality craftsmanship and contemporary design intersect. Today, we continue to honor that vision by carefully curating our collections and working with ethical manufacturers who share our values.</p>
+                <p>At FashionFusion, we believe fashion should be fun, expressive, and sustainable. That's why we're committed to eco-friendly practices and timeless designs that transcend seasonal trends.</p>
+            </div>
+            <div class="about-image">
+                <img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="FashionFusion store interior">
+            </div>
+        </section>
+
+        <!-- Mission and Values Section -->
+        <section class="mission-values">
+            <div class="mission-container">
+                <h2 class="section-title">Our Mission & Values</h2>
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3 class="value-title">Sustainability</h3>
+                        <p>We're committed to eco-friendly materials and ethical production methods that minimize our environmental impact.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3 class="value-title">Quality Craftsmanship</h3>
+                        <p>Every piece in our collection is carefully designed and crafted to meet our high standards of quality and durability.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h3 class="value-title">Customer Focus</h3>
+                        <p>Your satisfaction is our priority. We strive to create exceptional shopping experiences at every touchpoint.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Section -->
+        <section class="team-section">
+            <h2 class="section-title">Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sarah Johnson">
+                    </div>
+                    <h3 class="member-name">Sarah Johnson</h3>
+                    <p class="member-position">Founder & CEO</p>
+                    <p class="member-bio">With over 15 years in the fashion industry, Sarah's vision drives our brand's creative direction.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Michael Chen">
+                    </div>
+                    <h3 class="member-name">Michael Chen</h3>
+                    <p class="member-position">Creative Director</p>
+                    <p class="member-bio">Michael brings innovative design concepts that keep our collections fresh and exciting.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-behance"></i></a>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Emma Rodriguez">
+                    </div>
+                    <h3 class="member-name">Emma Rodriguez</h3>
+                    <p class="member-position">Head of Sustainability</p>
+                    <p class="member-bio">Emma ensures our environmental commitments are met throughout our supply chain.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer (Same as index.html) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-column">
+                <h4>Shop</h4>
+                <ul>
+                     <li><a href="NewArrivals.html">New Arrivals</a></li>
+                    <li><a href="#">Best Sellers</a></li>
+                    <li><a href="sale.html">Sale</a></li>
+                    <li><a href="#">Gift Cards</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Information</h4>
+                <ul>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#">Sustainability</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Customer Service</h4>
+                <ul>
+                    <li><a href="contact.html">Contact Us</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Size Guide</a></li>
+                </ul>
+            </div>
+            <div class="footer-column">
+                <h4>Connect With Us</h4>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest-p"></i></a>
+                </div>
+                <div class="payment-methods">
+                    <i class="fab fa-cc-visa"></i>
+                    <i class="fab fa-cc-mastercard"></i>
+                    <i class="fab fa-cc-amex"></i>
+                    <i class="fab fa-cc-paypal"></i>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 FashionFusion. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Initialize the cart count when the page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+            document.querySelectorAll('.cart-count').forEach(el => {
+                el.textContent = totalItems;
+            });
+        });
+    </script>
+</body>
+</html>
